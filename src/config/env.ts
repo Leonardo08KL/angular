@@ -15,6 +15,8 @@ import { EmpleadoSolicitudComponent } from 'src/app/componente/empleado-solicitu
 import { EmpleadoCrearComponent } from 'src/app/componente/empleado-crear/empleado-crear.component';
 import { VentaCrearComponent } from 'src/app/componente/venta-crear/venta-crear.component';
 import { VentaSolicitudComponent } from 'src/app/componente/venta-solicitud/venta-solicitud.component';
+import { ProveedorCrearComponent } from 'src/app/componente/proveedor-crear/proveedor-crear.component';
+import { ProveedorSolicitudComponent } from 'src/app/componente/proveedor-solicitud/proveedor-solicitud.component';
 
 export class ItemMenu {
   public id!: number;
@@ -59,6 +61,11 @@ export namespace env {
     { path: 'editar-venta/:id', component: VentaCrearComponent ,canActivate:[authGuardGuard]},
     { path: 'ver-venta/:id', component: VentaSolicitudComponent,canActivate:[authGuardGuard]},
 
+    //proveedor
+    { path: 'proveedor', component: ProveedorComponent, canActivate:[authGuardGuard]},
+    { path: 'crear-proveedor', component: ProveedorCrearComponent ,canActivate:[authGuardGuard]},
+    { path: 'editar-proveedor/:id', component: ProveedorCrearComponent ,canActivate:[authGuardGuard]},
+    { path: 'ver-proveedor/:id', component: ProveedorSolicitudComponent,canActivate:[authGuardGuard]},
 
 
 

@@ -1,0 +1,60 @@
+<div class="container">
+    <div *ngIf="!cargando">
+        <h1> {{proveedor.ProveedorID<0?'Crear Nuevo Proveedor':'Editar Proveedor '+proveedor.ProveedorID}}</h1>
+    
+    <div class="alert alert-primary" role="alert" *ngIf="mensaje!=null">
+        {{mensaje}}
+    </div>
+
+    <form (ngSubmit)="submit()" #forma="ngForm">
+        <div class="col-md-6">
+            <label for="Nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="Nombre" aria-describedby="Nombre"
+                [(ngModel)]="proveedor.Nombre" #Nombre="ngModel" name="Nombre" [ngClass]="{'is-valid':!Nombre.invalid,'is-invalid':Nombre.invalid}" required>
+                <div class="invalid-feedback" *ngIf="Nombre.invalid && (Nombre.dirty || Nombre.touched)">
+                    <div *ngIf="Nombre.errors?.['required']">
+                        Introduzaca su nombre
+                    </div>
+                </div>
+        </div>
+        <div class="col-md-6">
+            <label for="Contacto" class="form-label">Contacto</label>
+            <input type="text" class="form-control" id="Contacto" aria-describedby="Contacto"
+                [(ngModel)]="proveedor.Contacto" #Contacto="ngModel" name="Contacto" [ngClass]="{'is-valid':!Contacto.invalid,'is-invalid':Contacto.invalid}" required>
+                <div class="invalid-feedback" *ngIf="Contacto.invalid && (Contacto.dirty || Contacto.touched)">
+                    <div *ngIf="Contacto.errors?.['required']">
+                        Introduzaca su Contacto
+                    </div>
+                </div>
+        </div>
+        <div class="col-md-6">
+            <label for="Telefono" class="form-label">Telefono</label>
+            <input type="number" (input)="soloNumeros($event)" class="form-control" id="Telefono" aria-describedby="Telefono"
+                [(ngModel)]="proveedor.Telefono" #Telefono="ngModel" name="Telefono" [ngClass]="{'is-valid':!Telefono.invalid,'is-invalid':Telefono.invalid}" required>
+                <div class="invalid-feedback" *ngIf="Telefono.invalid && (Telefono.dirty || Telefono.touched)">
+                    <div *ngIf="Telefono.errors?.['required']">
+                        Introduzaca su Telefon
+                    </div>
+                </div>
+        </div>
+        <div class="col-md-6">
+            <label for="Direccion" class="form-label">Direccion</label>
+            <input type="text" class="form-control" id="Direccion" aria-describedby="Direccion"
+                [(ngModel)]="proveedor.Direccion" #Direccion="ngModel" name="Direccion" [ngClass]="{'is-valid':!Direccion.invalid,'is-invalid':Direccion.invalid}" required>
+                <div class="invalid-feedback" *ngIf="Direccion.invalid && (Direccion.dirty || Direccion.touched)">
+                    <div *ngIf="Direccion.errors?.['required']">
+                        Introduzaca su Direccion
+                    </div>
+                </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-12 mt-4">
+                <button type="submit" [disabled]="!forma.valid" class="btn btn-primary">                   
+                    {{proveedor.ProveedorID<0?'Agregar':'Actualizar'}}
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+</div>

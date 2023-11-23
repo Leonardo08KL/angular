@@ -1,33 +1,32 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EmpleadoService } from 'src/app/servieces/empleado.service';
-import { Empleado } from 'src/model/Empleado';
+import { ProveedorService } from 'src/app/servieces/proveedor.service';
+import { Proveedor } from 'src/model/Proveedor';
 
 @Component({
-  selector: 'app-empleado-crear',
-  templateUrl: './empleado-crear.component.html',
-  styleUrls: ['./empleado-crear.component.css']
+  selector: 'app-proveedor-crear',
+  templateUrl: './proveedor-crear.component.html',
+  styleUrls: ['./proveedor-crear.component.css']
 })
-export class EmpleadoCrearComponent{
-  empleado!: Empleado;
+export class ProveedorCrearComponent {
+  
+
+  proveedor!: Proveedor;
   mensaje!: string;
   cargando: boolean = false;
-  inputHabilitado: boolean = true;
-
   constructor(
-    private solicitudService: EmpleadoService,
+    private solicitudService: ProveedorService,
     private activaRouter: ActivatedRoute
   ) {
     //tener el id parametro
     //en caso que sea null
     if (activaRouter.snapshot.paramMap.get('id') != null) {
       this.cargando = true;
-      this.inputHabilitado = false;
       solicitudService
         .get(Number(activaRouter.snapshot.paramMap.get('id')))
         .subscribe({
           next: (resp) => {
-            this.empleado = resp.data as Empleado;
+            this.proveedor = resp.data as Proveedor;
             this.cargando = false;
             //this.solicitud = new Solicitud(resp.data.id, resp.data.titulo_corto, resp.data.descripcion, 0);
           },
@@ -37,39 +36,39 @@ export class EmpleadoCrearComponent{
           },
         });
     } else {
-      this.empleado = new Empleado(-1, '', '', '', new Date());
+      this.proveedor = new Proveedor(-1, '', '', '','');
     }
   }
-  
-  getToday(): string {
-    const today = new Date();
-    const dd = String(today.getDate()).padStart(2, '0');
-    const mm = String(today.getMonth() + 1).padStart(2, '0'); // Enero es 0!
-    const yyyy = today.getFullYear();
-    return `${yyyy}-${mm}-${dd}`;
-}
+  soloNumeros(event: any): void {
+    const pattern = /[0-9]/;
 
+    if (!pattern.test(event.key)) {
+      // Si el carácter ingresado no es un número, evita que se agregue al valor del campo
+      event.preventDefault();
+    }
+  }
   submit() {
     //servidor.crearSolicitud(this.solicitud);
-    //this.empleado.EmpleadoID = 1;
-    if (this.empleado.EmpleadoID < 0) {
-      this.solicitudService.create(this.empleado).subscribe({
+    //this.venta.VentaID = 1;
+    if (this.proveedor.ProveedorID < 0) {
+      this.solicitudService.create(this.proveedor).subscribe({
         next: (resp) => {
           console.log(resp);
-          this.mensaje = 'Empleado Guardado';
+          this.mensaje = 'Proveedor Agregado';
         },
         error: (err) => {
           console.log(err.error.msg);
+          this.mensaje = 'Error al agregar Proveedor';
           this.mensaje = err.error.msg;
         },
       });
     } else {
       this.solicitudService
-        .update(this.empleado.EmpleadoID, this.empleado)
+        .update(this.proveedor.ProveedorID, this.proveedor)
         .subscribe({
           next: (resp) => {
             console.log(resp);
-            this.mensaje = 'Informacion de Empleado Actualizada';
+            this.mensaje = 'Proveedor Actualizado';
           },
           error: (err) => {
             console.log(err.error.msg);
