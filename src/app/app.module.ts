@@ -22,6 +22,7 @@ import { VentaCrearComponent } from './componente/venta-crear/venta-crear.compon
 import { VentaSolicitudComponent } from './componente/venta-solicitud/venta-solicitud.component';
 import { ProveedorCrearComponent } from './componente/proveedor-crear/proveedor-crear.component';
 import { ProveedorSolicitudComponent } from './componente/proveedor-solicitud/proveedor-solicitud.component';
+import { ProductoCrearComponent } from './componente/producto-crear/producto-crear.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { ProveedorSolicitudComponent } from './componente/proveedor-solicitud/pr
     ProveedorCrearComponent,
     ProveedorSolicitudComponent,
     VentaComponent,
+    ProductoCrearComponent,
     VentaDetalleComponent,
     EmpleadoCrearComponent,
     EmpleadoSolicitudComponent,

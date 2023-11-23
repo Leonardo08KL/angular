@@ -1,1 +1,37 @@
-<p>producto works!</p>
+<div class="alert alert-primary" role="alert" *ngIf="mensaje!=null">
+    {{mensaje}}
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Nombre</td>
+            <td>Descripción</td>
+            <td>Precio</td>
+            <td>Stock</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngIf="listaProductos.length==0">
+            <td colspan="5">No hay elementos</td>
+        </tr>
+        <tr *ngFor="let producto of listaProductos; let i =index">
+            <td>{{producto.ProductoID}}</td>
+            <td>{{producto.Nombre}}</td>
+            <td>{{producto.Descripcion}}</td>
+            <td>{{producto.Precio}}</td>
+            <td>{{producto.Stock}}</td>
+            <td>
+                <button class="btn btn-info m-2" (click)="editSolicitud(producto.ProductoID)">Editar</button>
+                <button class="btn btn-info m-2" (click)="mostrarSolicitud(producto.ProductoID)">Ver</button>
+                <button (click)="deleteSolicitud(producto.ProductoID)" class="btn btn-danger m-2">Eliminar</button>
+            </td>
+        </tr>
+
+    </tbody>
+    <div class="card">
+        <div class="card-body">
+          <a href="/crear-producto" class="btn btn-info m-2">Agregar</a> 
+        </div>
+    </div>
+</table>

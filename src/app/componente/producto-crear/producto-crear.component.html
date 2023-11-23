@@ -1,0 +1,60 @@
+<div class="container">
+    <div *ngIf="!cargando">
+        <h1> {{producto.ProductoID<0?'Crear nuevo Producto':'Editar solicitud '+producto.ProductoID}}</h1>
+    
+    <div class="alert alert-primary" role="alert" *ngIf="mensaje!=null">
+        {{mensaje}}
+    </div>
+    <form (ngSubmit)="submit()" #forma="ngForm">
+        <div class="col-md-6">
+            <label for="Nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="Nombre" aria-describedby="Nombre" 
+            [(ngModel)]="producto.Nombre" #Nombre="ngModel" name="Nombre" [ngClass]="{'is-valid':!Nombre.invalid,'is-invalid':Nombre.invalid}" required>
+                <div class="invalid-feedback" *ngIf="Stock.invalid && (Stock.dirty || Stock.touched)">
+                    <div *ngIf="Stock.errors?.['required']">
+                        Introduzaca su nombre
+                    </div>
+                </div>
+        </div>
+        <div class="col-md-6">
+            <label for="Descripcion" class="form-label">Descripcion</label>
+            <input type="text" class="form-control" id="Descripcion" aria-describedby="Descripcion"
+                [(ngModel)]="producto.Descripcion" #Descripcion="ngModel" name="Descripcion" [ngClass]="{'is-valid':!Descripcion.invalid,'is-invalid':Descripcion.invalid}" required>
+                <div class="invalid-feedback" *ngIf="Stock.invalid && (Stock.dirty || Stock.touched)">
+                    <div *ngIf="Stock.errors?.['required']">
+                        Introduzaca su descripcion
+                    </div>
+                </div>
+        </div>
+        <div class="col-md-6">
+            <label for="Precio" class="form-label">Precio</label>
+            <input type="text" class="form-control" id="Precio" aria-describedby="Precio"
+                [(ngModel)]="producto.Precio" #Precio="ngModel" name="Precio" [ngClass]="{'is-valid':!Precio.invalid,'is-invalid':Precio.invalid}" required>
+                <div class="invalid-feedback" *ngIf="Stock.invalid && (Stock.dirty || Stock.touched)">
+                    <div *ngIf="Stock.errors?.['required']">
+                        Introduzaca su precio
+                    </div>
+                </div>
+        </div>
+        <div class="col-md-6">
+            <label for="Stock" class="form-label">Stock</label>
+            <input type="text" class="form-control" id="Stock" aria-describedby="Fecha Contratacion"
+                [(ngModel)]="producto.Stock" #Stock="ngModel" name="Stock" [ngClass]="{'is-valid':!Stock.invalid,'is-invalid':Stock.invalid}" required>
+            <div class="invalid-feedback" *ngIf="Stock.invalid && (Stock.dirty || Stock.touched)">
+                <div *ngIf="Stock.errors?.['required']">
+                    Introduzaca el stock
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="row">
+            <div class="col-12 mt-4">
+                <button type="submit" [disabled]="!forma.valid" class="btn btn-primary">                   
+                    {{producto.ProductoID<0?'Agregar':'Actualizar'}}
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+</div>
