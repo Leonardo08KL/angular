@@ -13,13 +13,11 @@ import { VentaComponent } from 'src/app/componente/venta/venta.component';
 import { VentaDetalleComponent } from 'src/app/componente/venta-detalle/venta-detalle.component';
 import { EmpleadoSolicitudComponent } from 'src/app/componente/empleado-solicitud/empleado-solicitud.component';
 import { EmpleadoCrearComponent } from 'src/app/componente/empleado-crear/empleado-crear.component';
-<<<<<<< HEAD
 //import { ProductoSolicitudComponent } from 'src/app/componente/producto-solicitud/producto-solicitud.component';
 import { ProductoCrearComponent } from 'src/app/componente/producto-crear/producto-crear.component';
-=======
 import { VentaCrearComponent } from 'src/app/componente/venta-crear/venta-crear.component';
 import { VentaSolicitudComponent } from 'src/app/componente/venta-solicitud/venta-solicitud.component';
->>>>>>> 4951aadeef7531cfb271f6e3e054c4c3187b975f
+
 
 export class ItemMenu {
   public id!: number;
@@ -58,14 +56,12 @@ export namespace env {
     { path: 'editar-empleado/:id', component: EmpleadoCrearComponent ,canActivate:[authGuardGuard]},
     { path: 'ver-empleado/:id', component: EmpleadoSolicitudComponent,canActivate:[authGuardGuard]},
 
-<<<<<<< HEAD
     // Producto
     { path: 'producto', component: ProductoComponent, canActivate:[authGuardGuard]},
     { path: 'crear-producto', component: ProductoCrearComponent ,canActivate:[authGuardGuard]},
     { path: 'editar-producto/:id', component: ProductoCrearComponent ,canActivate:[authGuardGuard]},
     { path: 'ver-producto/:id', component: EmpleadoSolicitudComponent,canActivate:[authGuardGuard]},
 
-=======
     // Venta
     { path: 'venta', component: VentaComponent, canActivate:[authGuardGuard]},
     { path: 'crear-venta', component: VentaCrearComponent ,canActivate:[authGuardGuard]},
@@ -73,10 +69,6 @@ export namespace env {
     { path: 'ver-venta/:id', component: VentaSolicitudComponent,canActivate:[authGuardGuard]},
 
 
-
-
-    { path: 'producto', component: ProductoComponent },
->>>>>>> 4951aadeef7531cfb271f6e3e054c4c3187b975f
     { path: 'proveedor', component: ProveedorComponent },
     { path: 'venta', component: VentaComponent },
     { path: 'venta-detalle', component: VentaDetalleComponent}

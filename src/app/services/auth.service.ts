@@ -35,8 +35,10 @@ export class AuthService {
   isUserLogin(): boolean {
     return this.isLogin;
   }
-  logout() {
-    return this.http.post(this.logoutUrl, {});
+  logout(): boolean {
+    localStorage.removeItem(this.authSecretKey);
+    this.isLogin = false;
+    return this.isLogin;
   }
   setTokeSecretKey(tokeSecret: string) {
     localStorage.setItem(this.authSecretKey, tokeSecret);

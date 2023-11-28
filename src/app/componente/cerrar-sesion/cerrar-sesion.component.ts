@@ -15,9 +15,8 @@ export class CerrarSesionComponent {
     ) {}
   
   onLogout(): void {
-    this.authService.logout().subscribe(() => {
       // Manejar aquí lo que sucede después de cerrar sesión, como redirigir al usuario
       this.router.navigate(['login']);
-    });
+
   }
 }

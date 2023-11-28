@@ -18,12 +18,9 @@ import { VentaComponent } from './componente/venta/venta.component';
 import { VentaDetalleComponent } from './componente/venta-detalle/venta-detalle.component';
 import { EmpleadoCrearComponent } from './componente/empleado-crear/empleado-crear.component';
 import { EmpleadoSolicitudComponent } from './componente/empleado-solicitud/empleado-solicitud.component';
-<<<<<<< HEAD
 import { ProductoCrearComponent } from './componente/producto-crear/producto-crear.component';
-=======
 import { VentaCrearComponent } from './componente/venta-crear/venta-crear.component';
 import { VentaSolicitudComponent } from './componente/venta-solicitud/venta-solicitud.component';
->>>>>>> 4951aadeef7531cfb271f6e3e054c4c3187b975f
 
 @NgModule({
   declarations: [
@@ -42,12 +39,9 @@ import { VentaSolicitudComponent } from './componente/venta-solicitud/venta-soli
     VentaDetalleComponent,
     EmpleadoCrearComponent,
     EmpleadoSolicitudComponent,
-<<<<<<< HEAD
-    ProductoCrearComponent
-=======
+    ProductoCrearComponent,
     VentaCrearComponent,
     VentaSolicitudComponent
->>>>>>> 4951aadeef7531cfb271f6e3e054c4c3187b975f
   ],
   imports: [
     BrowserModule,
