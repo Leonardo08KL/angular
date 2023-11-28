@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route } from '@angular/router';
 import { ProductoService } from 'src/app/servieces/producto.service';
 import { Producto } from 'src/model/Producto';
 

@@ -5,12 +5,11 @@
     <div class="alert alert-primary" role="alert" *ngIf="mensaje!=null">
         {{mensaje}}
     </div>
-
     <form (ngSubmit)="submit()" #forma="ngForm">
         <div class="col-md-6">
             <label for="Nombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="Nombre" aria-describedby="Nombre"
-                [(ngModel)]="producto.Nombre" #Nombre="ngModel" name="Nombre" [ngClass]="{'is-valid':!Nombre.invalid,'is-invalid':Nombre.invalid}" required>
+            <input type="text" class="form-control" id="Nombre" aria-describedby="Nombre" 
+            [(ngModel)]="producto.Nombre" #Nombre="ngModel" name="Nombre" [ngClass]="{'is-valid':!Nombre.invalid,'is-invalid':Nombre.invalid}" required>
                 <div class="invalid-feedback" *ngIf="Stock.invalid && (Stock.dirty || Stock.touched)">
                     <div *ngIf="Stock.errors?.['required']">
                         Introduzaca su nombre
@@ -47,6 +46,8 @@
                 </div>
             </div>
         </div>
+
+        
         <div class="row">
             <div class="col-12 mt-4">
                 <button type="submit" [disabled]="!forma.valid" class="btn btn-primary">                   

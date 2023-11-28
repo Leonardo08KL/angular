@@ -1,6 +1,6 @@
 <div class="container">
     <div *ngIf="!cargando">
-        <h1> {{empleado.EmpleadoID<0?'Crear nueva solicitud':'Editar solicitud'+empleado.EmpleadoID}}</h1>
+        <h1> {{empleado.EmpleadoID<0?'Agregar Empleado':'Editar Informacion de Empleado '+empleado.EmpleadoID}}</h1>
     
     <div class="alert alert-primary" role="alert" *ngIf="mensaje!=null">
         {{mensaje}}
@@ -11,8 +11,8 @@
             <label for="Nombre" class="form-label">Nombre</label>
             <input type="text" class="form-control" id="Nombre" aria-describedby="Nombre"
                 [(ngModel)]="empleado.Nombre" #Nombre="ngModel" name="Nombre" [ngClass]="{'is-valid':!Nombre.invalid,'is-invalid':Nombre.invalid}" required>
-                <div class="invalid-feedback" *ngIf="FechaContratacion.invalid && (FechaContratacion.dirty || FechaContratacion.touched)">
-                    <div *ngIf="FechaContratacion.errors?.['required']">
+                <div class="invalid-feedback" *ngIf="Nombre.invalid && (Nombre.dirty || Nombre.touched)">
+                    <div *ngIf="Nombre.errors?.['required']">
                         Introduzaca su nombre
                     </div>
                 </div>
@@ -21,8 +21,8 @@
             <label for="Apellido" class="form-label">Apellido</label>
             <input type="text" class="form-control" id="Apellido" aria-describedby="Apellido"
                 [(ngModel)]="empleado.Apellido" #Apellido="ngModel" name="Apellido" [ngClass]="{'is-valid':!Apellido.invalid,'is-invalid':Apellido.invalid}" required>
-                <div class="invalid-feedback" *ngIf="FechaContratacion.invalid && (FechaContratacion.dirty || FechaContratacion.touched)">
-                    <div *ngIf="FechaContratacion.errors?.['required']">
+                <div class="invalid-feedback" *ngIf="Apellido.invalid && (Apellido.dirty || Apellido.touched)">
+                    <div *ngIf="Apellido.errors?.['required']">
                         Introduzaca su apellido
                     </div>
                 </div>
@@ -31,16 +31,16 @@
             <label for="Posicion" class="form-label">Posicion</label>
             <input type="text" class="form-control" id="Posicion" aria-describedby="Posicion"
                 [(ngModel)]="empleado.Posicion" #Posicion="ngModel" name="Posicion" [ngClass]="{'is-valid':!Posicion.invalid,'is-invalid':Posicion.invalid}" required>
-                <div class="invalid-feedback" *ngIf="FechaContratacion.invalid && (FechaContratacion.dirty || FechaContratacion.touched)">
-                    <div *ngIf="FechaContratacion.errors?.['required']">
+                <div class="invalid-feedback" *ngIf="Posicion.invalid && (Posicion.dirty || Posicion.touched)">
+                    <div *ngIf="Posicion.errors?.['required']">
                         Introduzaca su posicion
                     </div>
                 </div>
         </div>
         <div class="col-md-6">
             <label for="FechaContratacion" class="form-label">Fecha Contratacion</label>
-            <input type="text" class="form-control" id="FechaContratacion" aria-describedby="Fecha Contratacion"
-                [(ngModel)]="empleado.FechaContratacion" #FechaContratacion="ngModel" name="FechaContratacion" [ngClass]="{'is-valid':!FechaContratacion.invalid,'is-invalid':FechaContratacion.invalid}" required>
+            <input type="date" class="form-control" id="FechaContratacion" aria-describedby="Fecha Contratacion"
+                [(ngModel)]="empleado.FechaContratacion" #FechaContratacion="ngModel" name="FechaContratacion" [ngClass]="{'is-valid':!FechaContratacion.invalid,'is-invalid':FechaContratacion.invalid}" required [min]="getToday()" [disabled]="!inputHabilitado">
             <div class="invalid-feedback" *ngIf="FechaContratacion.invalid && (FechaContratacion.dirty || FechaContratacion.touched)">
                 <div *ngIf="FechaContratacion.errors?.['required']">
                     Introduzaca su fecha de contratacion

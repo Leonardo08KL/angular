@@ -9,7 +9,7 @@ import { ProductoService } from 'src/app/servieces/producto.service';
   styleUrls: ['./producto.component.css']
 })
 export class ProductoComponent {
-  public listaProductos: Producto[] = [];
+public listaProductos: Producto[] = [];
   public mensaje?: string;
   public bloqueoBtnEliminar = false;
   ngOnInit() {}

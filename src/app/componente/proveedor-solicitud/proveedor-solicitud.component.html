@@ -1,0 +1,11 @@
+<div *ngIf="proveedor" class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Numero de solicitud: {{proveedor.ProveedorID}}</h5>
+      <p class="card-text">{{proveedor.Nombre}}</p>
+      <p class="card-text">{{proveedor.Contacto}}</p>
+      <p class="card-text">{{proveedor.Telefono}}</p>
+      <p class="card-text">{{proveedor.Direccion}}</p>
+      <a href="/editar-proveedor/{{proveedor.ProveedorID}}" class="btn btn-info m-2">Editar</a>      
+      <a (click)="eliminarSolicitud(proveedor.ProveedorID)" class="btn btn-danger m-2 ">Eliminar</a>
+    </div>
+</div>
